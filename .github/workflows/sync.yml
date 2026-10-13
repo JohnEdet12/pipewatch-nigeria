@@ -34,14 +34,17 @@ jobs:
         continue-on-error: true
         run: python pipeline.py
 
+      # Commit only when the spill records themselves changed (not just the sync time).
+      # The freshly built data.json is deployed either way.
       - name: Commit refreshed data
         run: |
-          if [ -n "$(git status --porcelain data.json)" ]; then
+          ver() { python -c "import json,sys; print(json.load(sys.stdin)['meta']['version'])"; }
+          if [ "$(git show HEAD:data.json | ver)" != "$(ver < data.json)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add data.json
             git commit -m "Sync NOSDRA spill records"
-            git push
+            git push || echo "Push skipped: main moved during this run; the next sync will commit."
           fi
 
       - name: Assemble site
