@@ -61,6 +61,13 @@ def _num(v):
     return float(m.group(0)) if m else None
 
 
+def _cause(v):
+    c = (v or '').strip().lower()
+    if c.startswith('other'):                 # the feed writes "other: <detail>"; "other: mys" is a mystery spill
+        return 'mys' if 'mys' in c else 'oth'
+    return c if c in ('sab', 'eqf', 'cor', 'ome', 'ytd', 'mys', 'oth') else 'ytd'
+
+
 def _date(v):
     s = str(v or '')[:10]
     try:
@@ -136,7 +143,7 @@ def clean(feed):
             'spill_id': int(r['id']), 'incident_number': re.sub(r'[\s.]+$', '', (r.get('incidentnumber') or '').strip().upper()),
             'status': r['status'].strip().lower(), 'updated': max(upd) if upd else '',
             'incident_date': d, 'operator': opmap.get(raw_op.upper(), raw_op or 'Unknown'),
-            'cause_code': (r.get('cause') or '').strip().lower() or 'ytd',
+            'cause_code': _cause(r.get('cause')),
             'facility_code': (r.get('typeoffacility') or '').strip().lower() or 'oth',
             'lga': re.sub(r'\s+', ' ', (r.get('lga') or '').replace('-', ' ')).strip() or None,
             'site_name_clean': site, 'asset_corridor': site,

@@ -369,6 +369,7 @@ const years=[...new Set(INC.map(d=>d.y))].sort((a,b)=>a-b);
 const ALLG=["vand","oper","unk","oth"];
 const F={y0:years[0],y1:years[years.length-1],groups:new Set(ALLG),state:"",op:"",fac:""};
 let view=[],tab=store.get("pw-tab2")||"pipe",stats=null;
+{const h=location.hash.slice(1);if(["pipe","seg","cell","uav"].includes(h))tab=h;} // deep link to a patrol tab
 
 /* ---------- map ---------- */
 const map=L.map("map",{preferCanvas:true,zoomSnap:.25,minZoom:6,maxZoom:17,attributionControl:false});
