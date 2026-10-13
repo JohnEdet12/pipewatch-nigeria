@@ -6,6 +6,8 @@ Response Agency (NOSDRA) and pipeline routes from OpenStreetMap.
 
 **Live dashboard:** https://johnedet12.github.io/pipewatch-nigeria/
 
+**Technical documentation:** [PDF](docs/PipeWatch%20Nigeria%20Technical%20Documentation.pdf) · [Word](docs/PipeWatch%20Nigeria%20Technical%20Documentation.docx)
+
 ## What it shows
 
 - Pipeline segments of up to 5 km, coloured by sabotage spills within 3 km
