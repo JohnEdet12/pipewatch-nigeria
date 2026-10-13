@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PipeWatch Nigeria: pipeline sabotage hotspots in the Niger Delta from NOSDRA spill records, ranked for UAV and ground patrols.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>PipeWatch Nigeria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Leaflet 1.9.4 core styles, inlined */
+.leaflet-pane,.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile-container,.leaflet-pane>svg,.leaflet-pane>canvas,.leaflet-zoom-box,.leaflet-image-layer,.leaflet-layer{position:absolute;left:0;top:0}
+.leaflet-container{overflow:hidden;-webkit-tap-highlight-color:transparent;outline-offset:1px;font-size:12px;line-height:1.5}
+.leaflet-tile,.leaflet-marker-icon,.leaflet-marker-shadow{user-select:none;-webkit-user-drag:none}
+.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}
+.leaflet-container .leaflet-tile-pane img,.leaflet-container .leaflet-tile{max-width:none!important;max-height:none!important;width:auto;padding:0}
+.leaflet-container.leaflet-touch-zoom{touch-action:pan-x pan-y}
+.leaflet-container.leaflet-touch-drag{touch-action:none;touch-action:pinch-zoom}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{touch-action:none}
+.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}
+.leaflet-zoom-box{width:0;height:0;box-sizing:border-box;z-index:800;border:2px dotted var(--accent)}
+.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}
+.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}
+.leaflet-control{position:relative;z-index:800;pointer-events:auto;float:left;clear:both}
+.leaflet-top,.leaflet-bottom{position:absolute;z-index:1000;pointer-events:none}
+.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}
+.leaflet-right .leaflet-control{float:right}
+.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}
+.leaflet-fade-anim .leaflet-popup{opacity:0;transition:opacity .2s linear}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}
+.leaflet-fade-anim .leaflet-tile{will-change:opacity}
+.leaflet-zoom-animated{transform-origin:0 0}
+.leaflet-zoom-anim .leaflet-zoom-animated{transition:transform .25s cubic-bezier(0,0,.25,1)}
+.leaflet-zoom-anim .leaflet-tile,.leaflet-pan-anim .leaflet-tile{transition:none}
+.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}
+.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:grab}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive{cursor:grabbing}
+.leaflet-popup-pane,.leaflet-control{cursor:auto}
+.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-image-layer,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}
+.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive{pointer-events:auto}
+.leaflet-bar{border-radius:6px;box-shadow:var(--shadow);overflow:hidden}
+.leaflet-bar a{width:30px;height:30px;display:block;text-align:center;text-decoration:none;background:var(--panel);color:var(--ink);border-bottom:1px solid var(--line);font:500 18px/30px var(--mono)}
+.leaflet-bar a:last-child{border-bottom:none}
+.leaflet-bar a:hover{background:var(--chip)}
+.leaflet-bar a.leaflet-disabled{color:var(--faint);cursor:default}
+.leaflet-control-attribution{background:rgba(255,255,255,.85);padding:1px 6px;font-size:10.5px;color:var(--muted);margin:0!important}
+.leaflet-control-attribution a{color:var(--muted)}
+.leaflet-control-scale-line{border:1.5px solid var(--muted);border-top:none;padding:0 5px;font:10.5px var(--mono);color:var(--ink);background:rgba(255,255,255,.8);white-space:nowrap;box-sizing:border-box}
+.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}
+.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:8px;background:var(--panel);color:var(--ink);box-shadow:0 6px 24px rgba(16,32,44,.28)}
+.leaflet-popup-content{margin:12px 14px;font-size:12.5px;line-height:1.5;min-width:230px}
+.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}
+.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;transform:rotate(45deg);background:var(--panel);box-shadow:0 3px 14px rgba(0,0,0,.3)}
+.leaflet-container a.leaflet-popup-close-button{position:absolute;top:2px;right:2px;width:24px;height:24px;font:16px/24px var(--body);color:var(--muted);text-decoration:none;text-align:center}
+.leaflet-tooltip{position:absolute;padding:4px 8px;background:var(--navy);border-radius:4px;color:#fff;white-space:nowrap;user-select:none;pointer-events:none;font-size:12px}
+
+/* Layout: one-screen operations console. Navy command bar, filter bar, KPI strip, then map + charts beside the patrol list. Falls back to a scrolling stack on small screens. Single light look by design: the basemap is the light OSM tile set. */
+:root{
+  color-scheme:light;
+  --bg:#EDF0F3; --panel:#FFFFFF; --ink:#12202B; --muted:#55636F; --faint:#93A0AB; --line:#DDE3E8; --chip:#EEF2F5;
+  --navy:#10263A; --navy-2:#1B3852; --navy-ink:#E9F0F6; --navy-muted:#9DB2C4;
+  --accent:#0B6E8A; --ok:#35A56B;
+  --r0:#F9C440; --r1:#F2811D; --r2:#D7301F; --r3:#7A0C1E;
+  --pipe:#3F5A8C; --approx:#6B3FA0;
+  --vand:#CC3524; --oper:#2F7FB3; --unk:#8A949C; --oth:#A8843C;
+  --shadow:0 1px 2px rgba(16,32,44,.08),0 2px 8px rgba(16,32,44,.08);
+  --display:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:13px;line-height:1.4;height:100%;display:flex;flex-direction:column;overflow:hidden}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+button,select,input{font:inherit;color:inherit}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.bar{background:var(--navy);color:var(--navy-ink);display:flex;align-items:center;gap:8px 16px;padding:8px 16px;flex-wrap:wrap}
+.logo{width:26px;height:26px;flex:none}
+.bar h1{font-size:19px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.bar .sub{color:var(--navy-muted);font-size:12.5px;flex:1 1 200px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.src{display:inline-flex;align-items:center;gap:7px;font:11.5px var(--mono);color:var(--navy-muted);white-space:nowrap}
+.src .dot{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.nbtn{border:1px solid var(--navy-2);background:var(--navy-2);color:var(--navy-ink);padding:5px 11px;border-radius:5px;cursor:pointer;font-size:12.5px;font-weight:500}
+.nbtn:hover{border-color:var(--navy-muted)}
+.nbtn[disabled]{opacity:.45;cursor:default}
+
+.filters{background:var(--panel);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px 14px;padding:7px 16px;flex-wrap:wrap}
+.f{display:flex;align-items:center;gap:6px;min-width:0}
+.f>label,.f>.t{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:600;white-space:nowrap}
+select{background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:4px 6px;max-width:190px;min-width:0;font-size:12.5px}
+select:hover{border-color:var(--faint)}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.chipb{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;white-space:nowrap}
+.chipb[aria-pressed="false"]{color:var(--faint);background:var(--chip)}
+.chipb[aria-pressed="false"] .sw{background:var(--faint)!important}
+.sw{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:10px 16px 0}
+.kpi{background:var(--panel);border-radius:8px;box-shadow:var(--shadow);padding:8px 12px;min-width:0;display:flex;flex-direction:column;gap:1px}
+.kpi .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.kpi .v{font-family:var(--display);font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .n{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi.alert .v{color:var(--vand)}
+
+.main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:10px;padding:10px 16px 12px}
+.center{display:grid;grid-template-rows:minmax(0,1fr) clamp(150px,24vh,210px);gap:10px;min-height:0;min-width:0}
+.panel{background:var(--panel);border-radius:8px;box-shadow:var(--shadow);min-width:0;min-height:0}
+.ph{display:flex;align-items:baseline;gap:8px;padding:8px 12px 4px}
+.ph h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;white-space:nowrap}
+.ph .x{font-size:11px;color:var(--faint);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.mapwrap{position:relative;overflow:hidden}
+#map{position:absolute;inset:0;background:#DCE7EC}
+.leaflet-container{font-family:var(--body);background:#DCE7EC}
+.leaflet-tile-pane{filter:saturate(.55) contrast(.95) brightness(1.03)}
+.stlab{font-family:var(--display);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.pop h4{margin:0 0 5px;font-family:var(--display);font-size:15px}
+.pop .tag{display:inline-block;font-size:10.5px;color:var(--muted);background:var(--chip);border-radius:3px;padding:0 5px;margin-bottom:5px}
+.pop dl{display:grid;grid-template-columns:auto 1fr;gap:1px 12px;margin:0}
+.pop dt{color:var(--muted)}
+.pop dd{margin:0;font-family:var(--mono);overflow-wrap:anywhere}
+
+.lgd{position:absolute;left:10px;bottom:22px;z-index:900;background:var(--panel);border-radius:8px;box-shadow:0 2px 12px rgba(16,32,44,.22);width:232px;max-width:calc(100% - 20px);max-height:calc(100% - 70px);display:flex;flex-direction:column;font-size:12px}
+.lgd-h{display:flex;align-items:center;gap:8px;width:100%;border:0;background:transparent;padding:8px 10px;cursor:pointer;font-weight:600;font-size:12px;text-align:left;border-radius:8px}
+.lgd-h:hover{background:var(--chip)}
+.lgd-h .car{margin-left:auto;transition:transform .15s;color:var(--muted)}
+.lgd[data-open="false"]{width:auto}
+.lgd[data-open="false"] .car{transform:rotate(180deg)}
+.lgd-b{overflow:auto;padding:0 10px 10px;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line)}
+.lgd[data-open="false"] .lgd-b{display:none}
+.lg{display:flex;flex-direction:column;gap:3px;padding-top:8px}
+.lg>label{display:flex;align-items:center;gap:7px;font-weight:600;cursor:pointer}
+.lg .it{display:flex;align-items:center;gap:8px;padding-left:22px;color:var(--muted)}
+.lg .ramp{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-left:22px}
+.lg .ramp i{height:9px;border-radius:2px}
+.lg .ramp span{font:10.5px var(--mono);color:var(--muted);text-align:center}
+.ln{width:22px;height:4px;border-radius:2px;flex:none}
+.ln.thin{height:2px}
+
+.tsl{position:absolute;left:50%;top:10px;transform:translateX(-50%);z-index:900;background:var(--panel);border-radius:8px;box-shadow:0 2px 12px rgba(16,32,44,.22);padding:6px 12px 4px;display:flex;align-items:center;gap:10px;width:min(520px,calc(100% - 110px))}
+.tsl .play{border:0;background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;flex:none;font-size:11px;line-height:28px;padding:0}
+.tsl .play:hover{filter:brightness(1.1)}
+.tsl .lab{font:600 13px var(--mono);white-space:nowrap;min-width:84px;text-align:center}
+.tsl .trk{position:relative;flex:1;height:34px;min-width:0}
+.tsl .rail{position:absolute;left:0;right:0;top:9px;height:4px;border-radius:2px;background:var(--line)}
+.tsl .fill{position:absolute;top:9px;height:4px;border-radius:2px;background:var(--accent)}
+.tsl input[type=range]{position:absolute;left:-8px;width:calc(100% + 16px);top:1px;margin:0;height:20px;background:transparent;pointer-events:none;-webkit-appearance:none;appearance:none}
+.tsl input[type=range]::-webkit-slider-runnable-track{background:transparent;height:20px}
+.tsl input[type=range]::-moz-range-track{background:transparent;height:20px}
+.tsl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--accent);cursor:grab;margin-top:2px;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.tsl input[type=range]::-moz-range-thumb{pointer-events:auto;width:10px;height:10px;border-radius:50%;background:#fff;border:3px solid var(--accent);cursor:grab;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.tsl .ticks{position:absolute;left:0;right:0;top:20px;display:flex;justify-content:space-between;font:9.5px var(--mono);color:var(--faint);pointer-events:none}
+.tsl .ticks span{width:0;display:flex;justify-content:center}
+.sync{display:inline-flex;align-items:center;gap:7px;font:11.5px var(--mono);color:var(--navy-muted);white-space:nowrap}
+.sync .dot{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.sync[data-s="busy"] .dot{background:#F9C440;animation:pulse 1s infinite}
+.sync[data-s="err"] .dot{background:#E5533D}
+.sync[data-s="snap"] .dot{background:var(--navy-muted)}
+@keyframes pulse{50%{opacity:.3}}
+.boot{position:fixed;inset:0;z-index:3000;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);padding:24px;text-align:center}
+.side{display:flex;flex-direction:column}
+.tabs{display:flex;gap:2px;padding:2px 12px 0;border-bottom:1px solid var(--line)}
+.tab{white-space:nowrap;border:0;border-bottom:2px solid transparent;background:transparent;padding:6px 9px;font-size:12.5px;cursor:pointer;color:var(--muted);font-weight:500;margin-bottom:-1px}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent);font-weight:600}
+.list{overflow:auto;flex:1;min-height:0}
+.item{display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:2px 8px;padding:8px 12px;border:0;border-bottom:1px solid var(--line);cursor:pointer;align-items:start;background:transparent;text-align:left;width:100%}
+.item:hover{background:var(--chip)}
+.item[aria-current="true"]{background:#E3F0F4;box-shadow:inset 3px 0 0 var(--accent)}
+.rank{font:11.5px var(--mono);color:var(--faint);padding-top:2px}
+.item .nm{font-weight:600;font-size:13px;overflow-wrap:anywhere}
+.item .meta{font-size:11.5px;color:var(--muted);grid-column:2/4}
+.cnt{font-family:var(--display);font-size:18px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;line-height:1.1}
+.cnt small{display:block;font-family:var(--body);font-size:10px;color:var(--muted);font-weight:400;letter-spacing:.04em;text-transform:uppercase}
+.pill{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:0 6px;border-radius:3px;margin-right:6px;color:#fff;line-height:16px}
+.pill.p1{background:var(--r3)}.pill.p2{background:var(--r2)}.pill.p3{background:var(--r1);color:#231200}
+.pill.ap{background:transparent;color:var(--approx);border:1px solid var(--approx);line-height:14px}
+.trend{font:11px var(--mono)}
+.note{padding:7px 12px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--line)}
+.note input{width:58px;border:1px solid var(--line);border-radius:4px;padding:1px 5px;background:var(--panel)}
+.empty{padding:16px 12px;color:var(--muted)}
+
+.charts{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;min-height:0}
+.cpanel{display:flex;flex-direction:column;overflow:hidden}
+.cbody{flex:1;min-height:0;position:relative;padding:0 12px 8px}
+.cbody svg{display:block;width:100%;height:100%;overflow:visible}
+.ax{fill:var(--muted);font:10px var(--mono)}
+.gl{stroke:var(--line);stroke-width:1}
+.hit{fill:transparent}.hit:hover{fill:var(--ink);fill-opacity:.07}
+.key{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);white-space:nowrap}
+.tip{position:absolute;z-index:5;pointer-events:none;background:var(--navy);color:#fff;border-radius:5px;padding:6px 9px;font-size:12px;white-space:nowrap}
+.tip b{font-family:var(--display);font-size:13px}
+.tip .r{display:flex;align-items:center;gap:6px}
+.tip .r span:last-child{margin-left:auto;padding-left:14px;font-family:var(--mono)}
+.hbars{display:flex;flex-direction:column;justify-content:space-around;height:100%;overflow:hidden}
+.hbar{display:grid;grid-template-columns:86px minmax(0,1fr) 40px;gap:8px;align-items:center;font-size:12px;padding:1px 2px;border:0;background:transparent;width:100%;text-align:left;cursor:pointer;border-radius:3px}
+.hbar:hover{background:var(--chip)}
+.hbar[aria-pressed="true"]{background:#E3F0F4}
+.hbar .track{height:10px;display:flex;gap:2px}
+.hbar .track span{border-radius:0 2px 2px 0;min-width:1px}
+.hbar .val{font:11.5px var(--mono);text-align:right}
+.hbar .lab{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.ovl{position:fixed;inset:0;z-index:2000;background:rgba(16,32,44,.5);display:flex;align-items:center;justify-content:center;padding:16px}
+.dlg{background:var(--panel);border-radius:10px;max-width:860px;width:100%;max-height:100%;overflow:auto;padding:18px 22px 20px;box-shadow:0 12px 48px rgba(0,0,0,.35)}
+.dlg header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.dlg h2{font-size:20px;flex:1}
+.dlg .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px 26px}
+.dlg h3{font-size:14px;margin-bottom:3px}
+.dlg p{margin:0 0 6px;color:var(--muted);max-width:65ch}
+.dlg .close{border:1px solid var(--line);background:var(--panel);border-radius:5px;padding:4px 12px;cursor:pointer}
+
+@media (max-width:1380px){.bar .sub{display:none}}
+@media (max-width:1180px){.main{grid-template-columns:minmax(0,1fr) 310px}.kpi .v{font-size:20px}}
+@media (max-width:900px),(max-height:540px){
+  body{height:auto;overflow:auto;display:block}
+  .kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .main{display:flex;flex-direction:column}
+  .center{display:flex;flex-direction:column}
+  .mapwrap{height:68vh;min-height:380px}
+  .charts{grid-template-columns:minmax(0,1fr)}
+  .cpanel{height:200px}
+  .side{max-height:520px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="bar">
+  <svg class="logo" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="6" fill="#0B6E8A"/><path d="M4 17h7a3 3 0 0 0 3-3v-2a3 3 0 0 1 3-3h5" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="14" cy="13" r="2.2" fill="#F9C440"/></svg>
+  <h1>PipeWatch Nigeria</h1>
+  <span class="sub">Pipeline sabotage hotspots in the Niger Delta, ranked for UAV and ground patrols</span>
+  <span class="sync" id="sync" data-s="snap"><span class="dot"></span><span id="srcText">NOSDRA spill records</span></span>
+  <button class="nbtn" id="syncBtn" type="button" hidden>Sync now</button>
+  <button class="nbtn" id="aboutBtn" type="button">Data and method</button>
+  <button class="nbtn" id="resetBtn" type="button">Reset map</button>
+</div>
+
+<div class="filters" aria-label="Filters">
+  <div class="f"><label for="yFrom">Period</label><select id="yFrom" aria-label="From year"></select><span>to</span><select id="yTo" aria-label="To year"></select></div>
+  <div class="f"><span class="t">Cause</span><div class="chips" id="causeChips"></div></div>
+  <div class="f"><label for="stateSel">State</label><select id="stateSel"></select></div>
+  <div class="f"><label for="opSel">Operator</label><select id="opSel"></select></div>
+  <div class="f"><label for="facSel">Asset</label><select id="facSel">
+    <option value="">All assets</option>
+    <option value="pl,bl,gl">Pipelines and trunk lines</option>
+    <option value="fl">Flowlines</option>
+    <option value="wh,fs,mf">Wellheads and stations</option>
+  </select></div>
+  <button class="chipb" id="clearBtn" type="button" style="margin-left:auto">Clear filters</button>
+</div>
+
+<section class="kpis" aria-label="Summary">
+  <div class="kpi"><span class="k">Spills in view</span><span class="v" id="kTotal">–</span><span class="n" id="kTotalN"></span></div>
+  <div class="kpi alert"><span class="k">Sabotage share</span><span class="v" id="kVand">–</span><span class="n" id="kVandN"></span></div>
+  <div class="kpi"><span class="k">Barrels reported</span><span class="v" id="kBbl">–</span><span class="n" id="kBblN"></span></div>
+  <div class="kpi"><span class="k">Most attacked pipeline</span><span class="v" id="kPipe">–</span><span class="n" id="kPipeN"></span></div>
+  <div class="kpi"><span class="k">Hot 5 km cells</span><span class="v" id="kCells">–</span><span class="n" id="kCellsN"></span></div>
+</section>
+
+<div class="main">
+  <div class="center">
+    <div class="panel mapwrap">
+      <div id="map" role="region" aria-label="Map of spills and pipelines"></div>
+      <div class="tsl" id="tsl" aria-label="Time slider">
+        <button class="play" id="tPlay" type="button" aria-label="Play year by year" title="Play year by year">▶</button>
+        <div class="trk"><div class="rail"></div><div class="fill" id="tFill"></div>
+          <input type="range" id="tFrom" aria-label="From year" step="1"><input type="range" id="tTo" aria-label="To year" step="1">
+          <div class="ticks" id="tTicks"></div></div>
+        <span class="lab" id="tLab"></span>
+      </div>
+      <div class="lgd" id="lgd" data-open="true">
+        <button class="lgd-h" id="lgdBtn" type="button" aria-expanded="true" aria-controls="lgdBody">Layers and legend<span class="car" aria-hidden="true">▾</span></button>
+        <div class="lgd-b" id="lgdBody">
+          <div class="lg"><label><input type="checkbox" id="lyPipe" checked>Pipelines, 5 km segments</label>
+            <div class="it" style="padding-left:22px">Sabotage spills within 3 km</div>
+            <div class="ramp"><i style="background:var(--r0)"></i><i style="background:var(--r1)"></i><i style="background:var(--r2)"></i><i style="background:var(--r3)"></i><span>1–4</span><span>5–14</span><span>15–39</span><span>40+</span></div>
+            <div class="it"><span class="ln thin" style="background:var(--pipe)"></span>No sabotage in view</div>
+            <div class="it"><span class="ln thin" style="background:repeating-linear-gradient(90deg,var(--pipe) 0 5px,transparent 5px 9px)"></span>Gas line, none in view</div>
+            <div class="it"><span class="ln" style="background:repeating-linear-gradient(90deg,var(--approx) 0 6px,transparent 6px 10px)"></span>Not in OSM, approximate</div></div>
+          <div class="lg"><label><input type="checkbox" id="lyGrid">5 km sabotage grid</label>
+            <div class="ramp"><i style="background:var(--r0)"></i><i style="background:var(--r1)"></i><i style="background:var(--r2)"></i><i style="background:var(--r3)"></i><span>1–4</span><span>5–14</span><span>15–39</span><span>40+</span></div></div>
+          <div class="lg"><label><input type="checkbox" id="lyInc">Spill points</label>
+            <div class="it"><span class="sw" style="background:var(--vand)"></span>Sabotage / third-party</div>
+            <div class="it"><span class="sw" style="background:var(--oper)"></span>Operational</div>
+            <div class="it"><span class="sw" style="background:var(--unk)"></span>Undetermined</div>
+            <div class="it"><span class="sw" style="background:var(--oth)"></span>Other</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="charts">
+      <div class="panel cpanel"><div class="ph"><h2>Monthly spills</h2><span class="key"><i class="sw" style="background:var(--vand)"></i>Sabotage</span><span class="key"><i class="sw" style="background:var(--oper)"></i>Other causes</span><span class="x" id="partialNote"></span></div><div class="cbody" id="cMonth"></div></div>
+      <div class="panel cpanel"><div class="ph"><h2>By state</h2><span class="x">select to filter</span></div><div class="cbody" id="cState"></div></div>
+      <div class="panel cpanel"><div class="ph"><h2>By operator</h2><span class="x">select to filter</span></div><div class="cbody" id="cOp"></div></div>
+    </div>
+  </div>
+
+  <aside class="panel side" aria-label="Patrol priorities">
+    <div class="ph"><h2>Patrol priorities</h2></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="pipe" aria-selected="true" type="button">Pipelines</button>
+      <button class="tab" role="tab" data-tab="seg" aria-selected="false" type="button">Segments</button>
+      <button class="tab" role="tab" data-tab="cell" aria-selected="false" type="button">Hotspot cells</button>
+      <button class="tab" role="tab" data-tab="uav" aria-selected="false" type="button">UAV sorties</button>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="note" id="note"></div>
+  </aside>
+</div>
+
+<div class="boot" id="boot">Loading spill records…</div>
+<div class="ovl" id="about" hidden>
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="aboutH">
+    <header><h2 id="aboutH">Data and method</h2><button class="close" id="aboutClose" type="button">Close</button></header>
+    <div class="cols">
+      <div><h3>Spill records</h3><p id="dataNote"></p>
+        <p>Causes and volumes are reported by operators and confirmed through NOSDRA Joint Investigation Visits. A blank quantity means unknown and is never counted as zero. New records are added over time, so the most recent months are likely undercounted.</p></div>
+      <div><h3>Pipeline routes</h3><p id="osmNote"></p>
+        <p>OSM does not map every line, and route accuracy varies by contributor. A line that OSM does not map is drawn as a dashed purple trace through the median positions of its own spill sites. That trace shows where attacks happen and is not a surveyed centreline.</p></div>
+      <div><h3>Line names and ranking</h3><p id="nameNote"></p>
+        <p>A named line's route is the set of OSM segments its own spills snap to. Pills mark Critical (150+ sabotage spills), High (60–149) and Elevated (20–59). The trend compares the last 12 months of the selected period with the 12 months before.</p></div>
+      <div><h3>Hotspot cells and UAV sorties</h3>
+        <p>The delta is divided into cells of 0.045° (about 5 km), scored by sabotage spills in four classes: 1–4, 5–14, 15–39 and 40 or more.</p>
+        <p>Sortie time is the route flown out and back, 2L ÷ v × 60 minutes, where L is route length in km and v is cruise speed in km/h. The default is 70 km/h for a fixed-wing VTOL UAV.</p></div>
+    </div>
+    <p style="margin-top:10px;font-size:11.5px">Spill data: National Oil Spill Detection and Response Agency (NOSDRA), Nigerian Oil Spill Monitor. Basemap and pipeline routes © OpenStreetMap contributors, ODbL 1.0. Fallback outline: Natural Earth. Map library: Leaflet 1.9.4.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+window.PW_EMBED = null;
+</script>
+<script>
+(async()=>{
+const $ = id => document.getElementById(id);
+let DATA=window.PW_EMBED,LIVE=false;
+if(!DATA){
+  try{const r=await fetch("data.json?t="+Date.now());if(!r.ok)throw new Error("HTTP "+r.status);DATA=await r.json();LIVE=true;}
+  catch(e){$("boot").textContent="Fetching the first data set from NOSDRA. This takes about a minute; the page will load by itself.";
+    setTimeout(()=>location.reload(),8000);return;}
+}
+$("boot").hidden=true;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const fmt = n => n==null||isNaN(n) ? "–" : Math.round(n).toLocaleString("en-NG");
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+/* ---------- lookups ---------- */
+const CAUSE_LABEL={sab:"Sabotage / third-party interference",eqf:"Equipment failure",cor:"Corrosion",ome:"Operational / maintenance error",ytd:"Yet to be determined",mys:"Mystery / unknown source",oth:"Other"};
+const GROUPS={vand:{label:"Sabotage",codes:["sab"],c:"--vand"},oper:{label:"Operational",codes:["eqf","cor","ome"],c:"--oper"},unk:{label:"Undetermined",codes:["ytd","mys"],c:"--unk"},oth:{label:"Other",codes:["oth"],c:"--oth"}};
+const C2G={};for(const g in GROUPS)GROUPS[g].codes.forEach(c=>C2G[c]=g);
+const FAC={pl:"Pipeline",fl:"Flowline",wh:"Wellhead",gl:"Gas line",fs:"Flow station",mf:"Manifold",st:"Storage tank",fp:"Platform",rg:"Rig",cp:"Compressor / CPF",tk:"Tank",tf:"Tank farm",ps:"Pump station",fd:"Facility",bl:"Bulk / trunk line",oth:"Other"};
+const SUB=["substance not tagged","oil","gas"];
+const CELL=0.045; // degrees, about 5 km
+const COL={};["--r0","--r1","--r2","--r3","--pipe","--approx","--vand","--oper","--unk","--oth","--ink","--panel"].forEach(k=>COL[k]=css(k));
+
+/* ---------- records ---------- */
+const MAXT=Date.parse(DATA.meta.max_date+"T00:00:00Z"),MAXY=+DATA.meta.max_date.slice(0,4),MAXM=+DATA.meta.max_date.slice(5,7);
+const INC=DATA.rows.map(r=>({id:r[0],ds:r[1],t:Date.parse(r[1]+"T00:00:00Z"),y:+r[1].slice(0,4),m:+r[1].slice(5,7),cause:r[2],g:C2G[r[2]]||"unk",op:r[3],fac:r[4],state:DATA.states[r[5]]||"Unknown",lga:DATA.lgas[r[6]]||"",line:r[7],lat:r[8],lon:r[9],bbl:r[10],site:r[11],nonleak:r[12],mil:r[13],seg:r[14],cell:Math.floor(r[8]/CELL)+"_"+Math.floor(r[9]/CELL)}));
+const LINES=DATA.lines,SEGS=DATA.segs,ROUTE=DATA.routes,APPROX=DATA.approx;
+const lineKm=id=>ROUTE[id]?ROUTE[id].km:APPROX[id]?APPROX[id].km:null;
+
+/* ---------- state ---------- */
+const years=[...new Set(INC.map(d=>d.y))].sort((a,b)=>a-b);
+const ALLG=["vand","oper","unk","oth"];
+const F={y0:years[0],y1:years[years.length-1],groups:new Set(ALLG),state:"",op:"",fac:""};
+let view=[],tab=store.get("pw-tab2")||"pipe",stats=null;
+
+/* ---------- map ---------- */
+const map=L.map("map",{preferCanvas:true,zoomSnap:.25,minZoom:6,maxZoom:17,attributionControl:false});
+const HOME=L.latLngBounds([4.2,5.0],[6.3,8.1]);
+map.fitBounds(HOME);
+const attr=L.control.attribution({prefix:false,position:"bottomright"}).addTo(map);
+L.control.scale({imperial:false,position:"bottomright"}).addTo(map);
+const canvas=L.canvas({padding:.3,tolerance:4});
+const gridL=L.layerGroup(),pipeL=L.layerGroup(),incL=L.layerGroup(),selL=L.layerGroup().addTo(map);
+let tilesOk=false,fellBack=false;
+map.zoomControl.setPosition("topright");
+const tiles=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}).addTo(map);
+tiles.on("tileload",()=>{tilesOk=true;});
+tiles.on("tileerror",()=>{if(tilesOk||fellBack)return;fellBack=true;map.removeLayer(tiles);fallbackBase();});
+function fallbackBase(){ // used only where OSM tiles cannot load (offline, or a host that blocks them)
+  const DELTA=new Set(["Rivers","Bayelsa","Delta","Akwa Ibom","Imo","Abia","Edo","Ondo","Cross River","Anambra"]);
+  L.geoJSON(DATA.geo_states,{interactive:false,style:f=>({color:"#A5B5B9",weight:.9,fillColor:DELTA.has(f.properties.name)?"#F8F9F5":"#E9EDE8",fillOpacity:1})}).addTo(map).bringToBack();
+  L.geoJSON(DATA.geo_rivers,{interactive:false,style:{color:"#9EC3CF",weight:1.6}}).addTo(map);
+  const at={"Rivers":[4.95,6.95],"Bayelsa":[4.85,6.0],"Delta":[5.75,5.85],"Akwa Ibom":[5.0,7.75],"Imo":[5.55,7.05],"Abia":[5.45,7.55],"Edo":[6.6,6.0]};
+  for(const n in at)L.marker(at[n],{interactive:false,icon:L.divIcon({className:"",html:`<span class="stlab">${n}</span>`,iconSize:null})}).addTo(map);
+  attr.addAttribution("OSM basemap tiles unavailable here, showing Natural Earth outline · Pipelines © OpenStreetMap contributors");
+}
+const CL=[[1,4,"--r0"],[5,14,"--r1"],[15,39,"--r2"],[40,1e9,"--r3"]];
+const cls=n=>CL.find(c=>n>=c[0]&&n<=c[1]);
+
+/* ---------- compute ---------- */
+function compute(){
+  const facs=F.fac?F.fac.split(","):null;
+  view=INC.filter(d=>d.y>=F.y0&&d.y<=F.y1&&F.groups.has(d.g)&&(!F.state||d.state===F.state)&&(F.op===""||d.op===+F.op)&&(!facs||facs.includes(d.fac)));
+  const endT=Math.min(Date.UTC(F.y1+1,0,1)-864e5,MAXT),r0=endT-365*864e5,p0=endT-730*864e5;
+  const pipes={},cells={},segs={};
+  const bump=(o,d,tr,pr)=>{o.n++;d.bbl==null?o.unk++:o.bbl+=d.bbl;o.recent+=tr;o.prior+=pr;if(d.t>o.last)o.last=d.t;};
+  const mk=x=>Object.assign({n:0,bbl:0,unk:0,recent:0,prior:0,last:0},x);
+  view.forEach(d=>{
+    if(d.g!=="vand")return;
+    const tr=d.t>r0&&d.t<=endT?1:0,pr=d.t>p0&&d.t<=r0?1:0;
+    if(d.line>=0){const p=pipes[d.line]||(pipes[d.line]=mk({id:d.line,name:LINES[d.line],ops:{},pts:[]}));bump(p,d,tr,pr);p.ops[d.op]=(p.ops[d.op]||0)+1;p.pts.push([d.lat,d.lon]);}
+    const c=cells[d.cell]||(cells[d.cell]=mk({key:d.cell,lines:{},lgas:{},states:{}}));bump(c,d,tr,pr);if(d.line>=0)c.lines[d.line]=(c.lines[d.line]||0)+1;if(d.lga)c.lgas[d.lga]=(c.lgas[d.lga]||0)+1;c.states[d.state]=(c.states[d.state]||0)+1;
+    if(d.seg>=0){const s=segs[d.seg]||(segs[d.seg]=mk({id:d.seg,lines:{},lgas:{},states:{}}));bump(s,d,tr,pr);if(d.line>=0)s.lines[d.line]=(s.lines[d.line]||0)+1;if(d.lga)s.lgas[d.lga]=(s.lgas[d.lga]||0)+1;s.states[d.state]=(s.states[d.state]||0)+1;}
+  });
+  const srt=o=>Object.values(o).sort((a,b)=>b.n-a.n||b.bbl-a.bbl);
+  stats={pipes:srt(pipes),cells:srt(cells),segs:srt(segs),byId:pipes,segById:segs,endT};
+}
+const top1=o=>{let k=null,v=-1;for(const x in o)if(o[x]>v){v=o[x];k=x;}return k;};
+const cellBounds=key=>{const[a,b]=key.split("_").map(Number);return[[a*CELL,b*CELL],[(a+1)*CELL,(b+1)*CELL]];};
+const dstr=t=>t?new Date(t).toISOString().slice(0,10):"–";
+const sortieMin=(km,v)=>Math.round(2*km/v*60);
+const speed=()=>Math.min(200,Math.max(20,+(store.get("pw-speed")||70)||70));
+
+/* ---------- render ---------- */
+function render(){
+  compute();
+  const v=view.filter(d=>d.g==="vand"),bb=view.reduce((a,d)=>a+(d.bbl||0),0),bbv=v.reduce((a,d)=>a+(d.bbl||0),0),noq=view.filter(d=>d.bbl==null).length;
+  const per=F.y0===F.y1?String(F.y0):F.y0+"–"+F.y1;
+  $("kTotal").textContent=fmt(view.length);$("kTotalN").textContent=per+(F.y1===MAXY?" (to "+DATA.meta.max_date+")":"")+(F.state?" · "+F.state:"");
+  $("kVand").textContent=view.length?Math.round(100*v.length/view.length)+"%":"–";$("kVandN").textContent=fmt(v.length)+" sabotage spills";
+  $("kBbl").textContent=fmt(bb);$("kBblN").textContent=(bb?Math.round(100*bbv/bb):0)+"% sabotage · "+fmt(noq)+" with no quantity";
+  const tp=stats.pipes[0];$("kPipe").textContent=tp?tp.name:"–";$("kPipe").title=tp?tp.name:"";$("kPipeN").textContent=tp?fmt(tp.n)+" sabotage spills":"No sabotage on named lines";
+  const hot=stats.cells.filter(c=>c.n>=15);$("kCells").textContent=fmt(hot.length);$("kCellsN").textContent="15+ sabotage spills"+(hot.length?" · "+Math.round(100*hot.reduce((a,c)=>a+c.n,0)/Math.max(1,v.length))+"% of sabotage":"");
+  const dirty=F.y0!==years[0]||F.y1!==years[years.length-1]||F.groups.size!==4||F.state||F.op!==""||F.fac;
+  $("clearBtn").hidden=!dirty;syncSlider();
+  drawMap();renderList();renderCharts();
+}
+function drawMap(){
+  gridL.clearLayers();pipeL.clearLayers();incL.clearLayers();selL.clearLayers();
+  stats.cells.forEach(c=>{L.rectangle(cellBounds(c.key),{renderer:canvas,stroke:false,fillColor:COL[cls(c.n)[2]],fillOpacity:.5}).bindPopup(()=>cellPopup(c)).addTo(gridL);});
+  const hot=[];
+  SEGS.forEach((s,i)=>{const st=stats.segById[i];if(st){hot.push([i,st.n]);return;}
+    L.polyline(s[3],{renderer:canvas,color:COL["--pipe"],weight:1.6,opacity:.85,dashArray:s[0]===2?"5 4":null}).bindTooltip(()=>segTip(i),{sticky:true}).bindPopup(()=>segPopup(i)).addTo(pipeL);});
+  for(const id in APPROX){const p=stats.byId[id],n=p?p.n:0;
+    L.polyline(APPROX[id].t,{renderer:canvas,color:COL["--approx"],weight:n?3.5:2,opacity:.9,dashArray:"7 6"}).bindTooltip(esc(LINES[id])+" · "+n+" sabotage · not in OSM, approximate",{sticky:true}).bindPopup(()=>pipePopup(+id)).addTo(pipeL);}
+  hot.sort((a,b)=>a[1]-b[1]).forEach(([i,n])=>{const g=SEGS[i][3];
+    L.polyline(g,{renderer:canvas,color:"#fff",weight:n>=15?8:6.5,opacity:.95,interactive:false}).addTo(pipeL);
+    L.polyline(g,{renderer:canvas,color:COL[cls(n)[2]],weight:n>=15?5:3.5,opacity:1}).bindTooltip(()=>segTip(i),{sticky:true}).bindPopup(()=>segPopup(i)).addTo(pipeL);});
+  if($("lyInc").checked)view.forEach(d=>{L.circleMarker([d.lat,d.lon],{renderer:canvas,radius:3,weight:.8,color:"#fff",fillColor:COL[GROUPS[d.g].c],fillOpacity:.95}).bindPopup(()=>incPopup(d)).addTo(incL);});
+  toggleLayers();
+}
+function toggleLayers(){[[gridL,"lyGrid"],[pipeL,"lyPipe"],[incL,"lyInc"]].forEach(([l,id])=>{if($(id).checked)l.addTo(map);else map.removeLayer(l);});}
+function segTip(i){const s=SEGS[i],st=stats.segById[i],nm=st?top1(st.lines):null;return (nm!=null?esc(LINES[nm]):s[1]?esc(s[1]):"Pipeline")+" · "+(st?st.n:0)+" sabotage";}
+function trendHTML(o){if(!o.recent&&!o.prior)return'<span class="trend">none in the last 24 months of the period</span>';const d=o.recent-o.prior;return `<span class="trend">${d>0?"▲ rising":d<0?"▼ falling":"■ level"} · ${o.recent} in last 12 mo vs ${o.prior} before</span>`;}
+function prio(n,a,b,c){return n>=a?'<span class="pill p1">Critical</span>':n>=b?'<span class="pill p2">High</span>':n>=c?'<span class="pill p3">Elevated</span>':"";}
+function pipePopup(id){const p=stats.byId[id],nm=LINES[id],km=lineKm(id),r=ROUTE[id],dia=(r||APPROX[id]||{}).dia;
+  const src=r?"Route from OpenStreetMap":APPROX[id]?"Not mapped in OSM · approximate trace":"No route available";
+  if(!p)return `<div class="pop"><h4>${esc(nm)}</h4><span class="tag">${src}</span><br>No sabotage spills for the current filters.</div>`;
+  return `<div class="pop"><h4>${esc(nm)}</h4><span class="tag">${src}</span><dl><dt>Sabotage spills</dt><dd>${fmt(p.n)}</dd><dt>Barrels reported</dt><dd>${fmt(p.bbl)}</dd><dt>No quantity</dt><dd>${fmt(p.unk)} spills</dd><dt>Main operator</dt><dd>${esc(DATA.ops[top1(p.ops)]||"–")}</dd>${km?`<dt>Attacked route</dt><dd>${km} km</dd><dt>UAV sortie</dt><dd>≈ ${sortieMin(km,speed())} min at ${speed()} km/h</dd>`:""}${dia?`<dt>Diameter</dt><dd>${dia} in</dd>`:""}<dt>Last attack</dt><dd>${dstr(p.last)}</dd></dl></div>`;}
+function segPopup(i){const s=SEGS[i],st=stats.segById[i];
+  const head=`<h4>Pipeline segment</h4><span class="tag">OpenStreetMap${s[1]?" · "+esc(s[1]):""} · ${SUB[s[0]]}</span>`;
+  if(!st)return `<div class="pop">${head}<dl><dt>Length</dt><dd>${s[2].toFixed(1)} km</dd><dt>Sabotage spills</dt><dd>none within 3 km for these filters</dd></dl></div>`;
+  const nm=top1(st.lines),lg=top1(st.lgas);
+  return `<div class="pop">${head}<dl><dt>Sabotage spills</dt><dd>${fmt(st.n)} within 3 km</dd><dt>Line (NOSDRA)</dt><dd>${nm!=null?esc(LINES[nm]):"unnamed"}</dd><dt>Length</dt><dd>${s[2].toFixed(1)} km</dd><dt>LGA, state</dt><dd>${esc(lg||"–")}, ${esc(top1(st.states))}</dd><dt>Barrels reported</dt><dd>${fmt(st.bbl)}</dd><dt>Last attack</dt><dd>${dstr(st.last)}</dd></dl></div>`;}
+function cellPopup(c){const nm=top1(c.lines),lg=top1(c.lgas);return `<div class="pop"><h4>5 km hotspot cell</h4><dl><dt>Sabotage spills</dt><dd>${fmt(c.n)}</dd><dt>Main line</dt><dd>${nm!=null?esc(LINES[nm]):"unnamed assets"}</dd><dt>LGA, state</dt><dd>${esc(lg||"–")}, ${esc(top1(c.states))}</dd><dt>Barrels reported</dt><dd>${fmt(c.bbl)}</dd><dt>No quantity</dt><dd>${fmt(c.unk)} spills</dd><dt>Last attack</dt><dd>${dstr(c.last)}</dd></dl></div>`;}
+function incPopup(d){return `<div class="pop"><h4>Spill ${d.id}</h4><dl><dt>Date</dt><dd>${d.ds}</dd><dt>Cause</dt><dd>${esc(CAUSE_LABEL[d.cause]||d.cause)}</dd><dt>Operator</dt><dd>${esc(DATA.ops[d.op]||"–")}</dd><dt>Asset</dt><dd>${esc(FAC[d.fac]||d.fac)}</dd>${d.line>=0?`<dt>Line</dt><dd>${esc(LINES[d.line])}</dd>`:""}<dt>Site</dt><dd>${esc(d.site||"–")}</dd><dt>LGA, state</dt><dd>${esc(d.lga||"–")}, ${esc(d.state)}</dd><dt>Quantity</dt><dd>${d.bbl==null?"not reported":fmt(d.bbl)+" bbl"}${d.nonleak?" · no leak":""}</dd>${d.mil?"<dt>JIV</dt><dd>military present</dd>":""}</dl></div>`;}
+
+function renderList(){
+  const el=$("list"),note=$("note"),rk=i=>String(i+1).padStart(2,"0");
+  document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.tab===tab)));
+  const ap=id=>ROUTE[id]?"":APPROX[id]?'<span class="pill ap">approx. route</span>':"";
+  if(tab==="pipe"){
+    const rows=stats.pipes.slice(0,40);note.textContent="Named lines from NOSDRA site names, spelling variants merged. Select one to see its route.";
+    el.innerHTML=rows.length?rows.map((p,i)=>`<button class="item" type="button" data-k="pipe" data-v="${p.id}"><span class="rank">${rk(i)}</span><span class="nm">${esc(p.name)}</span><span class="cnt">${fmt(p.n)}<small>sabotage</small></span><span class="meta">${prio(p.n,150,60,20)}${ap(p.id)}${esc(DATA.ops[top1(p.ops)]||"")} · ${fmt(p.bbl)} bbl<br>${trendHTML(p)}</span></button>`).join(""):'<div class="empty">No sabotage spills on named lines for these filters.</div>';
+  } else if(tab==="seg"){
+    const rows=stats.segs.slice(0,40);note.textContent="OpenStreetMap pipeline segments of up to 5 km, ranked by sabotage spills within 3 km.";
+    el.innerHTML=rows.length?rows.map((s,i)=>{const nm=top1(s.lines),lg=top1(s.lgas);return `<button class="item" type="button" data-k="seg" data-v="${s.id}"><span class="rank">${rk(i)}</span><span class="nm">${nm!=null?esc(LINES[nm]):"Unnamed line"}</span><span class="cnt">${fmt(s.n)}<small>sabotage</small></span><span class="meta">${prio(s.n,40,15,5)}${esc(lg||"Unknown LGA")}, ${esc(top1(s.states))} · ${SEGS[s.id][2].toFixed(1)} km<br>${trendHTML(s)}</span></button>`;}).join(""):'<div class="empty">No sabotage spills near a mapped pipeline for these filters.</div>';
+  } else if(tab==="cell"){
+    const rows=stats.cells.slice(0,40);note.textContent="Cells of about 5 km × 5 km ranked by sabotage spills. Turn on the grid layer to see them all.";
+    el.innerHTML=rows.length?rows.map((c,i)=>{const nm=top1(c.lines),lg=top1(c.lgas);return `<button class="item" type="button" data-k="cell" data-v="${c.key}"><span class="rank">${rk(i)}</span><span class="nm">${esc(lg||"Unknown LGA")}, ${esc(top1(c.states))}</span><span class="cnt">${fmt(c.n)}<small>sabotage</small></span><span class="meta">${prio(c.n,40,15,5)}${nm!=null?esc(LINES[nm]):"Unnamed assets"} · ${fmt(c.bbl)} bbl<br>${trendHTML(c)}</span></button>`;}).join(""):'<div class="empty">No sabotage spills for these filters.</div>';
+  } else {
+    const sp=speed();
+    const rows=stats.pipes.filter(p=>lineKm(p.id)).map(p=>({...p,km:lineKm(p.id),dens:p.n/lineKm(p.id)})).filter(p=>p.km>=5&&p.n>=10).sort((a,b)=>b.dens-a.dens).slice(0,30);
+    note.innerHTML=`Lines with at least 5 km of route and 10 sabotage spills, ranked by spills per km. Out-and-back sortie at <input id="speed" type="number" min="20" max="200" step="5" value="${sp}" class="mono" aria-label="Cruise speed in km/h"> km/h.`;
+    $("speed").onchange=e=>{store.set("pw-speed",e.target.value);renderList();};
+    el.innerHTML=rows.length?rows.map((p,i)=>`<button class="item" type="button" data-k="pipe" data-v="${p.id}"><span class="rank">${rk(i)}</span><span class="nm">${esc(p.name)}</span><span class="cnt">${p.dens.toFixed(1)}<small>per km</small></span><span class="meta">${prio(p.n,150,60,20)}${ap(p.id)}${p.km} km route · ${fmt(p.n)} sabotage · <span class="mono">≈ ${sortieMin(p.km,sp)} min</span></span></button>`).join(""):'<div class="empty">No routed lines have 10 or more sabotage spills for these filters.</div>';
+  }
+}
+const halo=g=>L.polyline(g,{renderer:canvas,color:"#0B6E8A",weight:13,opacity:.35,interactive:false}).addTo(selL);
+$("list").addEventListener("click",e=>{const b=e.target.closest(".item");if(!b)return;
+  document.querySelectorAll(".item[aria-current]").forEach(x=>x.removeAttribute("aria-current"));b.setAttribute("aria-current","true");selL.clearLayers();
+  if(!$("lyPipe").checked&&b.dataset.k!=="cell"){$("lyPipe").checked=true;toggleLayers();}
+  let bnds,at,html;
+  if(b.dataset.k==="pipe"){const id=+b.dataset.v,r=ROUTE[id],a=APPROX[id],p=stats.byId[id];
+    if(r){bnds=L.latLngBounds([]);r.s.forEach(i=>{halo(SEGS[i][3]);bnds.extend(L.latLngBounds(SEGS[i][3]));});}
+    else if(a){halo(a.t);bnds=L.latLngBounds(a.t);}
+    else bnds=L.latLngBounds(p.pts);
+    at=bnds.getCenter();html=pipePopup(id);bnds=bnds.pad(.2);}
+  else if(b.dataset.k==="seg"){const i=+b.dataset.v,g=SEGS[i][3];halo(g);bnds=L.latLngBounds(g).pad(1);at=g[Math.floor(g.length/2)];html=segPopup(i);}
+  else{const c=stats.cells.find(x=>x.key===b.dataset.v);if($("lyGrid").checked===false){$("lyGrid").checked=true;toggleLayers();}
+    L.rectangle(cellBounds(c.key),{renderer:canvas,color:"#0B6E8A",weight:2.5,fill:false,interactive:false}).addTo(selL);bnds=L.latLngBounds(cellBounds(c.key)).pad(1.2);at=bnds.getCenter();html=cellPopup(c);}
+  map.fitBounds(bnds,{maxZoom:13});L.popup({autoPan:false}).setLatLng(at).setContent(html).openOn(map);
+  if(window.innerWidth<=900)$("map").scrollIntoView({behavior:"smooth",block:"center"});});
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;store.set("pw-tab2",tab);renderList();$("list").scrollTop=0;});
+
+/* ---------- charts ---------- */
+const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function renderCharts(){
+  const months=[];for(let y=F.y0;y<=F.y1;y++)for(let m=1;m<=12;m++){if(y===MAXY&&m>MAXM)break;months.push({y,m,v:0,o:0});}
+  view.forEach(d=>{const i=(d.y-F.y0)*12+d.m-1;if(months[i])d.g==="vand"?months[i].v++:months[i].o++;});
+  const box=$("cMonth"),W=Math.max(240,box.clientWidth-24),H=Math.max(90,box.clientHeight-8),pl=30,pb=16,pt=6,mx=Math.max(4,...months.map(x=>x.v+x.o));
+  const step=[1,2,5,10,20,25,50,100,200,500].find(s=>s*4>=mx)||Math.ceil(mx/4),top=step*4;
+  const bw=(W-pl)/Math.max(1,months.length),y=v=>pt+(H-pt-pb)*(1-v/top),gap=bw>6?2:bw>3?1:.5;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Monthly spills, sabotage and other causes">`;
+  for(let k=0;k<=4;k++){const v=k*step;s+=`<line class="gl" x1="${pl}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text class="ax" x="${pl-5}" y="${y(v)+3}" text-anchor="end">${v}</text>`;}
+  const every=months.length>96&&W<620?2:1;
+  months.forEach((x,i)=>{const X=pl+i*bw+gap/2,w=Math.max(.8,bw-gap);
+    if(x.o)s+=`<rect x="${X}" y="${y(x.o)}" width="${w}" height="${y(0)-y(x.o)}" fill="${COL["--oper"]}"/>`;
+    if(x.v)s+=`<rect x="${X}" y="${y(x.o+x.v)}" width="${w}" height="${Math.max(0,y(x.o)-y(x.o+x.v)-(x.o?1:0))}" fill="${COL["--vand"]}"/>`;
+    if(x.m===1&&(x.y-F.y0)%every===0)s+=`<text class="ax" x="${pl+i*bw}" y="${H-3}">${x.y}</text>`;});
+  months.forEach((x,i)=>{s+=`<rect class="hit" data-i="${i}" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/>`;});
+  box.innerHTML=s+'</svg><div class="tip" id="mTip" hidden></div>';
+  const tip=$("mTip"),svg=box.querySelector("svg");
+  svg.onmousemove=e=>{const h=e.target.closest(".hit");if(!h){tip.hidden=true;return;}const x=months[+h.dataset.i];
+    tip.innerHTML=`<b>${MON[x.m-1]} ${x.y}</b><div class="r"><i class="sw" style="background:${COL["--vand"]}"></i><span>Sabotage</span><span>${x.v}</span></div><div class="r"><i class="sw" style="background:${COL["--oper"]}"></i><span>Other causes</span><span>${x.o}</span></div>`;
+    tip.hidden=false;const r=box.getBoundingClientRect(),px=e.clientX-r.left,tw=tip.offsetWidth;
+    tip.style.left=Math.max(0,Math.min(r.width-tw,px+(px+tw+16>r.width?-tw-12:12)))+"px";tip.style.top=Math.max(0,Math.min(r.height-tip.offsetHeight,e.clientY-r.top-tip.offsetHeight-8))+"px";};
+  svg.onmouseleave=()=>{tip.hidden=true;};
+  $("partialNote").textContent=F.y1===MAXY?`recent months likely undercounted`:"";
+  const rowsFit=Math.max(3,Math.min(8,Math.floor(($("cState").clientHeight-6)/21)));
+  const hb=(rows,el,kind,cur)=>{const m=Math.max(1,...rows.map(r=>r[1]+r[2]));$(el).innerHTML=rows.length?'<div class="hbars">'+rows.map(r=>`<button class="hbar" type="button" data-kind="${kind}" data-v="${esc(r[3])}" aria-pressed="${String(r[3])===String(cur)&&cur!==""}" title="${esc(r[0])}: ${fmt(r[1])} sabotage, ${fmt(r[2])} other causes"><span class="lab">${esc(r[0])}</span><span class="track">${r[1]?`<span style="width:${100*r[1]/m}%;background:${COL["--vand"]}"></span>`:""}${r[2]?`<span style="width:${100*r[2]/m}%;background:${COL["--oper"]}"></span>`:""}</span><span class="val">${fmt(r[1]+r[2])}</span></button>`).join("")+"</div>":'<div class="empty">No spills for these filters.</div>';};
+  const agg=(key,lab)=>{const o={};view.forEach(d=>{const k=key(d);(o[k]=o[k]||[lab(k),0,0,k])[d.g==="vand"?1:2]++;});return Object.values(o).sort((a,b)=>b[1]+b[2]-a[1]-a[2]).slice(0,rowsFit);};
+  hb(agg(d=>d.state,k=>k),"cState","state",F.state);hb(agg(d=>d.op,k=>DATA.ops[k]||"Unknown"),"cOp","op",F.op);
+}
+document.querySelector(".charts").addEventListener("click",e=>{const b=e.target.closest(".hbar");if(!b)return;
+  if(b.dataset.kind==="state"){F.state=F.state===b.dataset.v?"":b.dataset.v;$("stateSel").value=F.state;}
+  else{F.op=String(F.op)===b.dataset.v?"":b.dataset.v;$("opSel").value=F.op;}
+  render();});
+let rz;try{new ResizeObserver(()=>{clearTimeout(rz);rz=setTimeout(()=>{map.invalidateSize();if(stats)renderCharts();},120);}).observe(document.querySelector(".center"));}catch(e){}
+
+/* ---------- controls ---------- */
+function setupFilters(){
+  const opts=years.map(y=>`<option>${y}</option>`).join("");$("yFrom").innerHTML=opts;$("yTo").innerHTML=opts;
+  const cnt={};INC.forEach(d=>cnt[d.g]=(cnt[d.g]||0)+1);
+  $("causeChips").innerHTML=Object.entries(GROUPS).map(([k,v])=>`<button class="chipb" type="button" id="cg-${k}" data-g="${k}" aria-pressed="true" title="${fmt(cnt[k]||0)} spills"><span class="sw" style="background:var(${v.c})"></span>${v.label}</button>`).join("");
+  const sc={};INC.forEach(d=>sc[d.state]=(sc[d.state]||0)+1);
+  $("stateSel").innerHTML='<option value="">All states</option>'+Object.entries(sc).sort((a,b)=>b[1]-a[1]).map(([s,n])=>`<option value="${esc(s)}">${esc(s)} (${fmt(n)})</option>`).join("");
+  const oc={};INC.forEach(d=>oc[d.op]=(oc[d.op]||0)+1);
+  $("opSel").innerHTML='<option value="">All operators</option>'+Object.entries(oc).filter(([o])=>o>=0).sort((a,b)=>b[1]-a[1]).map(([o,n])=>`<option value="${o}">${esc(DATA.ops[o])} (${fmt(n)})</option>`).join("");
+  syncControls();
+}
+function syncControls(){$("yFrom").value=F.y0;$("yTo").value=F.y1;$("stateSel").value=F.state;$("opSel").value=F.op;$("facSel").value=F.fac;ALLG.forEach(g=>$("cg-"+g).setAttribute("aria-pressed",String(F.groups.has(g))));}
+$("yFrom").onchange=e=>{stopPlay();F.y0=+e.target.value;if(F.y1<F.y0){F.y1=F.y0;$("yTo").value=F.y1;}render();};
+$("yTo").onchange=e=>{stopPlay();F.y1=+e.target.value;if(F.y0>F.y1){F.y0=F.y1;$("yFrom").value=F.y0;}render();};
+$("causeChips").onclick=e=>{const b=e.target.closest(".chipb");if(!b)return;const g=b.dataset.g;F.groups.has(g)?F.groups.delete(g):F.groups.add(g);syncControls();render();};
+$("stateSel").onchange=e=>{F.state=e.target.value;render();};
+$("opSel").onchange=e=>{F.op=e.target.value;render();};
+$("facSel").onchange=e=>{F.fac=e.target.value;render();};
+["lyGrid","lyPipe"].forEach(id=>$(id).onchange=toggleLayers);$("lyInc").onchange=()=>drawMap();
+$("resetBtn").onclick=()=>{map.closePopup();selL.clearLayers();document.querySelectorAll(".item[aria-current]").forEach(x=>x.removeAttribute("aria-current"));map.fitBounds(HOME);};
+$("clearBtn").onclick=()=>{stopPlay();F.y0=years[0];F.y1=years[years.length-1];F.groups=new Set(ALLG);F.state="";F.op="";F.fac="";syncControls();render();};
+function setLegend(open){$("lgd").dataset.open=String(open);$("lgdBtn").setAttribute("aria-expanded",String(open));store.set("pw-lgd",open?"1":"0");}
+$("lgdBtn").onclick=()=>setLegend($("lgd").dataset.open!=="true");
+L.DomEvent.disableClickPropagation($("lgd"));L.DomEvent.disableScrollPropagation($("lgd"));
+{const s=store.get("pw-lgd");setLegend(s==null?window.innerWidth>900:s==="1");}
+$("aboutBtn").onclick=()=>{$("about").hidden=false;$("aboutClose").focus();};
+$("aboutClose").onclick=()=>{$("about").hidden=true;$("aboutBtn").focus();};
+$("about").onclick=e=>{if(e.target===$("about"))$("about").hidden=true;};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("about").hidden=true;});
+
+/* ---------- time slider ---------- */
+const Y0=years[0],Y1=years[years.length-1];let playT=null;
+["tFrom","tTo"].forEach(id=>{$(id).min=Y0;$(id).max=Y1;});
+$("tTicks").innerHTML=years.map((y,i)=>`<span>${i===0||i===years.length-1||years.length<9||(y%2===1&&i<years.length-2)?"’"+String(y).slice(2):""}</span>`).join("");
+function syncSlider(){$("tFrom").value=F.y0;$("tTo").value=F.y1;const span=Math.max(1,Y1-Y0);
+  $("tFill").style.left=100*(F.y0-Y0)/span+"%";$("tFill").style.width=100*(F.y1-F.y0)/span+"%";
+  $("tLab").textContent=F.y0===F.y1?String(F.y0):F.y0+"–"+F.y1;$("yFrom").value=F.y0;$("yTo").value=F.y1;}
+function stopPlay(){if(playT){clearInterval(playT);playT=null;$("tPlay").textContent="▶";$("tPlay").setAttribute("aria-label","Play year by year");}}
+$("tFrom").oninput=e=>{stopPlay();F.y0=Math.min(+e.target.value,F.y1);render();};
+$("tTo").oninput=e=>{stopPlay();F.y1=Math.max(+e.target.value,F.y0);render();};
+$("tPlay").onclick=()=>{if(playT){stopPlay();return;}
+  F.y0=F.y1=(F.y0===F.y1&&F.y1<Y1)?F.y1+1:Y0;render();$("tPlay").textContent="❚❚";$("tPlay").setAttribute("aria-label","Pause");
+  playT=setInterval(()=>{if(F.y1>=Y1){stopPlay();return;}F.y0=F.y1=F.y1+1;render();},1400);};
+L.DomEvent.disableClickPropagation($("tsl"));L.DomEvent.disableScrollPropagation($("tsl"));
+
+/* ---------- live sync with the NOSDRA Oil Spill Monitor ---------- */
+const ago=iso=>{if(!iso)return"never";const m=Math.round((Date.now()-Date.parse(iso))/6e4);return m<1?"just now":m<60?m+" min ago":m<1440?Math.round(m/60)+" h ago":Math.round(m/1440)+" d ago";};
+function setSync(s,text){$("sync").dataset.s=s;$("srcText").textContent=text;}
+let hasServer=false,pollT=null;
+async function checkHosted(){ // static hosting: a scheduled job rewrites data.json, so look for a newer copy
+  try{const d=await (await fetch("data.json?t="+Date.now(),{cache:"no-store"})).json();
+    if(d.meta.version!==DATA.meta.version){setSync("busy","New NOSDRA records, reloading…");setTimeout(()=>location.reload(),1200);return;}}catch(e){}
+  setSync("ok",`Live · NOSDRA synced ${ago(DATA.meta.synced_at)} · ${fmt(DATA.meta.records)} spills to ${DATA.meta.max_date}`);
+  $("sync").title="Re-read from the NOSDRA Oil Spill Monitor every 6 hours.";
+}
+async function pollStatus(){
+  if(!hasServer){
+    try{const r=await fetch("api/status",{cache:"no-store"});if(!r.ok)throw 0;await r.clone().json();hasServer=true;}
+    catch(e){clearInterval(pollT);checkHosted();setInterval(checkHosted,30*60*1000);return;}
+  }
+  try{const st=await (await fetch("api/status",{cache:"no-store"})).json();
+    $("syncBtn").hidden=false;$("syncBtn").disabled=st.syncing;
+    if(st.version&&st.version!==DATA.meta.version&&!st.syncing){setSync("busy","New NOSDRA records, reloading…");setTimeout(()=>location.reload(),1200);return;}
+    if(st.syncing)setSync("busy","Syncing with NOSDRA…");
+    else if(st.error)setSync("err",`NOSDRA sync failed ${ago(st.last_try)} · data from ${ago(st.last_ok)}`);
+    else setSync("ok",`Live · NOSDRA synced ${ago(st.last_ok)} · ${fmt(DATA.meta.records)} spills to ${DATA.meta.max_date}`);
+    $("sync").title=st.error?st.error:`Checks NOSDRA every ${st.interval_h} h. Next check ${st.next?new Date(st.next).toLocaleString():"soon"}.`;
+  }catch(e){setSync("err","Sync server not reachable · showing last loaded data");}
+}
+$("syncBtn").onclick=async()=>{$("syncBtn").disabled=true;setSync("busy","Syncing with NOSDRA…");try{await fetch("api/refresh",{method:"POST"});}catch(e){}setTimeout(pollStatus,1500);};
+
+/* ---------- boot ---------- */
+const M=DATA.meta;
+if(LIVE){pollStatus();pollT=setInterval(pollStatus,20000);}else setSync("snap",`Snapshot · NOSDRA · ${fmt(M.records)} spills to ${M.max_date}`);
+$("dataNote").textContent=`${fmt(M.records)} spills from the NOSDRA Oil Spill Monitor bulk feed (${fmt(M.raw)} records for all years and regions), ${M.min_date} to ${M.max_date}${LIVE?", re-read automatically every few hours":""}. Only confirmed or reviewed, de-duplicated records from 2015 onward with coordinates in the Niger Delta are mapped.`;
+$("osmNote").innerHTML=`Pipeline geometry is OpenStreetMap ways tagged <span class="mono">man_made=pipeline</span>, about ${fmt(M.osm_km)} km in the Niger Delta, cut into ${fmt(M.osm_segs)} segments of up to 5 km. Each spill is snapped to the nearest segment within 3 km; ${Math.round(100*M.osm_near/M.sab)}% of sabotage spills snap to one.`;
+$("nameNote").textContent=`Line names are parsed from the NOSDRA site name. Spelling variants are merged and two-ended names are matched in either order, so Bomu–Bonny and Bonny–Bomu are one line. ${Math.round(100*M.named_sab/M.sab)}% of sabotage spills carry a line name. ${fmt(M.routes)} lines have an OSM route and ${Object.keys(APPROX).length} use an approximate trace.`;
+setupFilters();render();
+})();
+</script>
+
+</body>
+</html>
